@@ -1,0 +1,15 @@
+name: descjocky 
+channels:
+  - conda-forge 
+dependencies:
+  - python=3.10
+  - pip 
+  - xtb 
+  - rdkit 
+  - openbabel 
+  - mopac 
+  - pip:
+      - padelpy 
+      - BlueDesc-pywrapper
+      - mordred
+      - chemopy2
