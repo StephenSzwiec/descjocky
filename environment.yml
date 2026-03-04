@@ -1,0 +1,11 @@
+name: descjocky
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.10
+  - pip
+  - xtb
+  - rdkit
+  - numpy>=1.24
+  - pip:
+      - -e .[all,dev]

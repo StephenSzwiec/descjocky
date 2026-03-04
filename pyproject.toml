@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68.0", "setuptools-scm>=8.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "descjocky"
+version = "0.2.0"
+description = "A cheminformatics molecular descriptor calculator with pluggable backends"
+readme = "README.md"
+license = { text = "GPLv3" }
+requires-python = ">=3.10"
+authors = [
+    { name = "Stephen Szwiec" },
+]
+keywords = ["cheminformatics", "molecular-descriptors", "QSAR", "QSPR", "rdkit"]
+
+# Core dependencies only — backends declare their own
+dependencies = [
+    "rdkit",       # always needed: Mol objects, SDF I/O, conformer generation
+    "numpy>=1.24",
+]
+
+[project.optional-dependencies]
+mordred = ["mordred"]
+pybel   = ["openbabel"]
+all     = ["mordred", "openbabel"]
+dev     = ["pytest", "pytest-cov"]
+
+[project.scripts]
+descjocky = "descjocky.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["descjocky*"]
